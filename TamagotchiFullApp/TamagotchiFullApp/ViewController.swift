@@ -10,18 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var InformationLabel: UILabel!
-    @IBOutlet weak var TamagotchiLabel: UILabel!
+    @IBOutlet weak var informationLabel: UILabel!
+    @IBOutlet weak var tamagotchiLabel: UILabel!
     @IBOutlet weak var mealButton: UIButton!
     @IBOutlet weak var snackButton: UIButton!
     @IBOutlet weak var gameButton: UIButton!
     @IBOutlet weak var toiletButton: UIButton!
     @IBOutlet weak var medicineButton: UIButton!
     @IBOutlet weak var disciplineButton: UIButton!
-    @IBOutlet weak var LifetimeLabel: UILabel!
+    @IBOutlet weak var lifetimeLabel: UILabel!
     @IBOutlet weak var RockButton: UIButton!
     @IBOutlet weak var PaperButton: UIButton!
     @IBOutlet weak var ScissorsButton: UIButton!
+    @IBOutlet weak var Poop1: UILabel!
+    @IBOutlet weak var Poop2: UILabel!
+    @IBOutlet weak var Poop3: UILabel!
+    
     
     var timer: Timer?
     var lifetime = 0
@@ -29,7 +33,7 @@ class ViewController: UIViewController {
     
     var tamagotchi: Tamagotchi? {
         didSet {
-                TamagotchiLabel.text = tamagotchi?.showStats()
+                tamagotchiLabel.text = tamagotchi?.showStats()
         }
     }
 
@@ -44,7 +48,7 @@ class ViewController: UIViewController {
 
     }
     @IBAction func mealButton(_ sender: Any) {
-        InformationLabel.text = """
+        informationLabel.text = """
         Hunger Reset to 0
         Weight Increased by 1
         """
@@ -54,7 +58,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func snackButton(_ sender: Any) {
-        InformationLabel.text = """
+        informationLabel.text = """
         Happiness Increased by 1
         Weight increasing by 2
         """
@@ -67,12 +71,23 @@ class ViewController: UIViewController {
     @IBAction func gameButton(_ sender: Any) {
         tamagotchi?.playGame()
         hideGameButtons()
-        InformationLabel.text = """
+        informationLabel.text = """
         Choose Rock, Paper or Scissors
         """
         choice = Int.random(in: 1...3)
     }
     @IBAction func toiletBathroom(_ sender: Any) {
+        if (Poop1.isHidden == false) || (Poop2.isHidden == false) ||  (Poop3.isHidden == false) {
+            hidePoops()
+            informationLabel.text  = """
+            Congratulations, you cleared your Tamagotchi's Poop!
+            Its discipline and happiness have increased by 2!
+            """
+            tamagotchi?.doPoop()
+            displayStats()
+        } else {
+            informationLabel.text = "Error, your Tamagotchi has not gone to the toilet!"
+        }
     }
     @IBAction func medicineButton(_ sender: Any) {
     }
@@ -80,14 +95,17 @@ class ViewController: UIViewController {
     }
     
     func displayStats() {
-        TamagotchiLabel.text = tamagotchi?.showStats()
+        tamagotchiLabel.text = tamagotchi?.showStats()
     }
     func checkIfDead() -> Bool {
         if ((tamagotchi?.getWeight())!) >= 15 {
-            InformationLabel.text = "Your Tamagotchi has got too heavy and died!!"
+            informationLabel.text = "Your Tamagotchi has got too heavy and died!!"
             return true
         } else if ((tamagotchi?.getWeight())!) <= 0 {
-            InformationLabel.text = "Your Tamagotchi has got too light and died!"
+            informationLabel.text = "Your Tamagotchi has got too light and died!"
+            return true
+        } else if ((tamagotchi?.getHealth())!) <= 0 {
+            informationLabel.text = "He has died from too low health"
             return true
         }
         else {
@@ -95,36 +113,69 @@ class ViewController: UIViewController {
         }
     }
     
+    func displayPoop() {
+        let loseHealthLabel = """
+        Your Tamagotchi has shat himself, and lost 5 health!
+        """
+        let random_int = Int.random(in: 1...3)
+        if random_int == 1 {
+            if Poop1.isHidden == false {
+                // Already On, so lose health
+                tamagotchi?.loseHealth()
+                informationLabel.text = loseHealthLabel
+                displayStats()
+            }
+            Poop1.isHidden = false
+        } else if random_int == 2 {
+            if Poop2.isHidden == false {
+                tamagotchi?.loseHealth()
+                informationLabel.text = loseHealthLabel
+                displayStats()
+            } else {
+                Poop2.isHidden = false
+            }
+        } else if random_int == 3 {
+            if Poop3.isHidden == false {
+                tamagotchi?.loseHealth()
+                informationLabel.text = loseHealthLabel
+                displayStats()
+
+            } else {
+                Poop3.isHidden = false
+            }
+        }
+    }
+    
     @IBAction func rockButtonAction(_ sender: Any) {
         // userChoice = 1
         if choice == 1 {
-            InformationLabel.text = "Draw"
+            informationLabel.text = "Draw"
         } else if choice == 2 {
-            InformationLabel.text = "Loss, the computer chose Paper"
+            informationLabel.text = "Loss, the computer chose Paper"
         } else if choice == 3 {
-            InformationLabel.text = "Won, the computer chose Scissors"
+            informationLabel.text = "Won, the computer chose Scissors"
         }
         hideGameButtons()
     }
     @IBAction func paperButtonAction(_ sender: Any) {
 //        userChoice = 2
         if choice == 2 {
-            InformationLabel.text = "Draw"
+            informationLabel.text = "Draw"
         } else if choice == 1 {
-            InformationLabel.text = "Won, the computer chose Rock"
+            informationLabel.text = "Won, the computer chose Rock"
         } else if choice == 3 {
-            InformationLabel.text = "Loss, the computer chose Scissors"
+            informationLabel.text = "Loss, the computer chose Scissors"
         }
         hideGameButtons()
     }
     @IBAction func scissorsButtonAction(_ sender: Any) {
 //        userChoice = 3
         if choice == 3 {
-            InformationLabel.text = "Draw"
+            informationLabel.text = "Draw"
         } else if choice == 1 {
-            InformationLabel.text = "Loss, the computer chose Rock"
+            informationLabel.text = "Loss, the computer chose Rock"
         } else if choice == 2 {
-            InformationLabel.text = "Won, the computer chose Paper"
+            informationLabel.text = "Won, the computer chose Paper"
         }
         hideGameButtons()
     }
@@ -141,18 +192,42 @@ class ViewController: UIViewController {
         }
     }
     
+    func hidePoops() {
+        Poop1.isHidden = true
+        Poop2.isHidden = true
+        Poop3.isHidden = true
+    }
+    func die() {
+        timer?.invalidate()
+        mealButton.isEnabled = false
+        snackButton.isEnabled = false
+        gameButton.isEnabled = false
+        toiletButton.isEnabled = false
+        disciplineButton.isEnabled = false
+        medicineButton.isEnabled = false
+    }
+    
     @objc func countdown() {
         if (!checkIfDead()) {
             lifetime += 1
-            LifetimeLabel.text = "\(lifetime)"
+            lifetimeLabel.text = "\(lifetime)"
+            if (lifetime % 10 == 0) {
+                let randomEvent = Int.random(in: 1...20)
+                if randomEvent < 5 {
+                    displayPoop()
+                } else if randomEvent < 10 {
+                    
+                } else if randomEvent < 14 {
+                    
+                } else if randomEvent < 18 {
+                    
+                } else {
+                    die()
+                }
+                
+            }
         } else {
-            timer?.invalidate()
-            mealButton.isEnabled = false
-            snackButton.isEnabled = false
-            gameButton.isEnabled = false
-            toiletButton.isEnabled = false
-            disciplineButton.isEnabled = false
-            medicineButton.isEnabled = false
+            die()
         }
     }
 }

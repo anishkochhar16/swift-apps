@@ -50,6 +50,10 @@ class Tamagotchi {
     func getDis () -> Int {
         return self.discipline
     }
+    
+    func getHealth () -> Int {
+        return self.health
+    }
 
     func feedMeal() {
         hunger = 1
@@ -69,11 +73,21 @@ class Tamagotchi {
     }
 
     func doPoop() {
-        print("Doing a poo")
-        weight -= 2
+        if happiness >= 3 {
+            happiness = 5
+        }
+        if discipline >= 8 {
+            discipline = 10
+        }
+        discipline += 2
         happiness += 2
     }
 
+    func loseHealth() {
+        health -= 5
+        discipline -= 2
+    }
+    
     func playGame () {
         happiness += 3
         weight -= 1
