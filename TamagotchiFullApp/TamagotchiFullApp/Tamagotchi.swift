@@ -65,6 +65,26 @@ class Tamagotchi {
         weight += 2
     }
     
+    func Age() {
+        age += 1
+    }
+    
+    func removeDis() {
+        discipline -= 2
+    }
+    
+    func addDis() {
+        discipline += 1
+        happiness -= 2
+    }
+    
+    func makeHappyOne() {
+        happiness += 1
+    }
+    
+    func makeHappyTwo() {
+        happiness += 2
+    }
     
     func wakeUp() {
         if isSleeping == true {

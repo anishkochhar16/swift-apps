@@ -92,6 +92,10 @@ class ViewController: UIViewController {
     @IBAction func medicineButton(_ sender: Any) {
     }
     @IBAction func disciplineButton(_ sender: Any) {
+        if (tamagotchi?.getDis())! >= 0 {
+            informationLabel.text = "Well done! Your Tamagotchi is more disclipined"
+            tamagotchi!.addDis()
+        }
     }
     
     func displayStats() {
@@ -106,6 +110,9 @@ class ViewController: UIViewController {
             return true
         } else if ((tamagotchi?.getHealth())!) <= 0 {
             informationLabel.text = "He has died from too low health"
+            return true
+        } else if ((tamagotchi?.getHappy())! < 0) {
+            informationLabel.text = "He has died from lack of happiness"
             return true
         }
         else {
@@ -150,34 +157,47 @@ class ViewController: UIViewController {
         // userChoice = 1
         if choice == 1 {
             informationLabel.text = "Draw"
+            tamagotchi?.makeHappyOne()
         } else if choice == 2 {
             informationLabel.text = "Loss, the computer chose Paper"
+            tamagotchi?.makeHappyOne()
         } else if choice == 3 {
             informationLabel.text = "Won, the computer chose Scissors"
+            tamagotchi?.makeHappyTwo()
         }
         hideGameButtons()
+        displayStats()
     }
     @IBAction func paperButtonAction(_ sender: Any) {
 //        userChoice = 2
         if choice == 2 {
             informationLabel.text = "Draw"
+            tamagotchi?.makeHappyOne()
         } else if choice == 1 {
             informationLabel.text = "Won, the computer chose Rock"
+            tamagotchi?.makeHappyTwo()
         } else if choice == 3 {
             informationLabel.text = "Loss, the computer chose Scissors"
+            tamagotchi?.makeHappyOne()
         }
         hideGameButtons()
+        displayStats()
+
     }
     @IBAction func scissorsButtonAction(_ sender: Any) {
 //        userChoice = 3
         if choice == 3 {
             informationLabel.text = "Draw"
+            tamagotchi?.makeHappyOne()
         } else if choice == 1 {
             informationLabel.text = "Loss, the computer chose Rock"
+            tamagotchi?.makeHappyOne()
         } else if choice == 2 {
             informationLabel.text = "Won, the computer chose Paper"
+            tamagotchi?.makeHappyTwo()
         }
         hideGameButtons()
+        displayStats()
     }
     
     func hideGameButtons() {
@@ -215,16 +235,20 @@ class ViewController: UIViewController {
                 let randomEvent = Int.random(in: 1...20)
                 if randomEvent < 5 {
                     displayPoop()
-                } else if randomEvent < 10 {
-                    
+                } else if (randomEvent < 10) && ((tamagotchi?.getDis())! > 0) {
+                    tamagotchi!.removeDis()
+                    displayStats()
+                    informationLabel.text = "Your Tamagotchi is rioting! Discipline them!"
                 } else if randomEvent < 14 {
-                    
-                } else if randomEvent < 18 {
-                    
+                    informationLabel.text = "Random Event"
+                } else if randomEvent < 19 {
+                    informationLabel.text = "Random Event"
                 } else {
+                    informationLabel.text = "Your Tamagotchi has Died randomly"
                     die()
                 }
-                
+                tamagotchi?.Age()
+                displayStats()
             }
         } else {
             die()
