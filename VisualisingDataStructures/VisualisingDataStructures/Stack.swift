@@ -13,14 +13,16 @@ class Stack {
     
     var top = -1
     var array = [Int]()
+    let max_length = 10
     
     func push(item: Int) {
-        if top  == array.count - 1 {
+        if top  == 9 {
             print("stack overflow")
         }
         else {
             top += 1
-            array[top] = item
+            print(top)
+            array.append(item)
         }
     }
     
@@ -35,5 +37,18 @@ class Stack {
             return item
         }
         
+    }
+    
+    func peek() -> Int? {
+        if top < 0 {
+            print("stack empty")
+            return nil
+        } else {
+            return array[top]
+        }
+    }
+    
+    func display() -> ([Int], Int) {
+        return (array, top)
     }
 }
