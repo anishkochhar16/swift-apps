@@ -10,11 +10,11 @@ import Foundation
 
 class Tamagotchi {
 
-    private var age: Int = 0
+    private var age: Int = 1
     private var weight: Int = 10
     private var hunger: Int = 4
-    private var discipline: Int = 0
-    private var happiness: Int = 0
+    private var discipline: Int = 1
+    private var happiness: Int = 1
     private var isSleeping: Bool = false
     private var name: String = "Default Name"
     private var health: Int = 100
@@ -70,7 +70,7 @@ class Tamagotchi {
     }
     
     func removeDis() {
-        discipline -= 2
+        discipline -= 1
     }
     
     func addDis() {
@@ -79,11 +79,26 @@ class Tamagotchi {
     }
     
     func makeHappyOne() {
-        happiness += 1
+        if happiness < 4 {
+            happiness += 1
+            print("not max changing")
+
+        } else {
+            happiness = 5
+            print("changing")
+
+        }
     }
     
     func makeHappyTwo() {
-        happiness += 2
+        if happiness < 3 {
+            happiness += 2
+            print("n changing")
+
+        } else {
+            happiness = 5
+            print("changing")
+        }
     }
     
     func wakeUp() {

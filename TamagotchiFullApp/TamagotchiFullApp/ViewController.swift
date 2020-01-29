@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         Weight Increased by 1
         """
         tamagotchi?.feedMeal()
-        checkIfDead()
+//        let _ = checkIfDead()
         displayStats()
     }
     
@@ -63,8 +63,7 @@ class ViewController: UIViewController {
         Weight increasing by 2
         """
         tamagotchi?.feedSnack()
-        // add way to die if eat too many snacks
-        checkIfDead()
+//        let _ = checkIfDead()
         displayStats()
     }
     
@@ -92,9 +91,13 @@ class ViewController: UIViewController {
     @IBAction func medicineButton(_ sender: Any) {
     }
     @IBAction func disciplineButton(_ sender: Any) {
-        if (tamagotchi?.getDis())! >= 0 {
+        let discipline = tamagotchi?.getDis()
+        if (discipline! >= 0) && (discipline! <= 8){
             informationLabel.text = "Well done! Your Tamagotchi is more disclipined"
             tamagotchi!.addDis()
+            displayStats()
+        } else {
+            informationLabel.text = "Cannot discipline further!"
         }
     }
     
@@ -240,9 +243,9 @@ class ViewController: UIViewController {
                     displayStats()
                     informationLabel.text = "Your Tamagotchi is rioting! Discipline them!"
                 } else if randomEvent < 14 {
-                    informationLabel.text = "Random Event"
+                    informationLabel.text = "Random Event 1"
                 } else if randomEvent < 19 {
-                    informationLabel.text = "Random Event"
+                    informationLabel.text = "Random Event 2"
                 } else {
                     informationLabel.text = "Your Tamagotchi has Died randomly"
                     die()
