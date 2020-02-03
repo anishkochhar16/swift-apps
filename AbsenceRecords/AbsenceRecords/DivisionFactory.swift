@@ -11,15 +11,20 @@ import Foundation
 class DivisionFactory {
     
     static let alphabet = "abcdefghijklmnopqrstuvwxyz"
-    let dummyStudentData = [Student(forename: "Anish", surname: "Kochhar", birthday: Date(timeIntervalSinceReferenceDate: 56458980)), Student(forename: "Jesse", surname: "Grylls", birthday: Date(timeIntervalSinceReferenceDate: 600802000)) ]
+    
+    static let fornames = ["Jayden", "Sofía", "Adam", "Ali", "Nathan", "Thomas", "Kate", "Alfie", "Christian"]
+    static let surnames = ["Smith", "Lee", "Kumar", "Williams", "Specter", "Glover", "Ross", "Shelby", "Upton"]
     
     static func createDivision(code: String, of size: Int) -> Division {
         let division = Division(code: code)
         for _ in (1...size) {
             
             let seconds: Int = Int.random(in: 50000000...60000000)
-            let forename = String((5..<10).map{ _ in alphabet.randomElement()! })
-            let surname = String((5..<10).map{ _ in alphabet.randomElement()! })
+//            let forename = String((5..<10).map{ _ in alphabet.randomElement()! })
+//            let surname = String((5..<10).map{ _ in alphabet.randomElement()! })
+
+            let forename = fornames[Int.random(in: 0...8)]
+            let surname = surnames[Int.random(in: 0...8)]
             
             division.students.append(Student(forename: forename , surname: surname, birthday: Date(timeIntervalSinceReferenceDate: TimeInterval(seconds))))
         }
