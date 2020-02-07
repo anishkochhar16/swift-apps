@@ -18,15 +18,6 @@ class ViewController: UITableViewController {
         
         loadDummyData()
         
-        // iterate over every division
-        // for each division, output its name and the number of students to the console
-        // for each division, output each of its students names
-        for division in divisions {
-            print("Division Code: \(division.code)\nSize: \(division.students.count)\nStudents:")
-            for student in division.students{
-                print("Name: \(student.forename) \(student.surname)")
-            }
-        }
         updateDateDisplay()
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,8 +36,17 @@ class ViewController: UITableViewController {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "DivisionAbsenceViewController") as? DivisionAbsenceViewController else {
             fatalError("Failed to load Division Absence View Controller from Storyboard")
         }
-        vc.division  = divisions[indexPath.row]
+        let selectedDivision = divisions[indexPath.row]
         
+        if let reusedAbsence = selectedDivision.getAbsence(for: currentDate) {
+            vc.absence = reusedAbsence
+        } else {
+            let newAbsence = Absence(date: currentDate)
+            selectedDivision.absences.append(newAbsence)
+            vc.absence = newAbsence
+        }
+        vc.division  = selectedDivision
+
         navigationController?.pushViewController(vc, animated: true)
     }
     
