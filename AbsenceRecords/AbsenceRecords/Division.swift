@@ -16,7 +16,6 @@ class Division {
     
     init(code: String) {
         self.code = code
-        let seconds = Int.random(in: 1...3)
     }
     
     func getAbsence(for date: Date) -> Absence? {
