@@ -43,9 +43,10 @@ class HomeViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let selectedDivision = divisions[indexPath.row]
-        var absence = Absence(date: currentDate)
+        var absence = Absence(date: currentDate, present: selectedDivision.students)
         
         if let reusedAbsence = selectedDivision.getAbsence(for: currentDate) {
+            print("existing absence")
             absence = reusedAbsence
         } else {
             selectedDivision.absences.append(absence)
