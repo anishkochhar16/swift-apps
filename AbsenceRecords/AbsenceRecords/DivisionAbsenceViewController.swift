@@ -26,9 +26,14 @@ class DivisionAbsenceViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = division.code
-        if let selectedRows = absence.selectedRows {
-            for selectedRow in selectedRows {
-                tableView.selectRow(at: selectedRow, animated: false, scrollPosition: .none)
+        selectRowsForPresentStudents()
+    }
+    
+    func selectRowsForPresentStudents() {
+        for (position, student) in division.students.enumerated() {
+            if absence.present.contains(student) {
+                let indexPath = IndexPath(row: position, section: 0)
+                tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
             }
         }
     }
@@ -52,12 +57,8 @@ class DivisionAbsenceViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let deselectedStudent = division.students[indexPath.row]
         absence.present.removeAll {
-            $0.forename == deselectedStudent.forename && $0.surname == deselectedStudent.surname && $0.birthday == deselectedStudent.birthday
+            $0 == deselectedStudent
         }
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        absence.selectedRows = tableView.indexPathsForSelectedRows
     }
     
 }
