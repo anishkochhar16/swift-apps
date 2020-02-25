@@ -96,7 +96,7 @@
                                 <rect key="frame" x="189" y="646" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bkm-BI-IIS">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bkm-BI-IIS">
                                 <rect key="frame" x="188" y="685" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
@@ -145,7 +145,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Confirm Choices"/>
                                 <connections>
-                                    <action selector="confirmButton:" destination="06P-at-waD" eventType="touchUpInside" id="O0i-eG-9jv"/>
+                                    <action selector="confirmChoices:" destination="06P-at-waD" eventType="touchUpInside" id="ufn-Wx-ORm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuA-lK-BZO">
@@ -161,6 +161,7 @@
                     </view>
                     <connections>
                         <outlet property="attitudeSwitch" destination="OYP-gs-O1l" id="fbw-JG-6jc"/>
+                        <outlet property="confirmButton" destination="vsA-aj-7V2" id="Qsz-nP-OCq"/>
                         <outlet property="disorganisedSwitch" destination="9eU-Td-56K" id="oVv-QA-43Q"/>
                         <outlet property="effortPicker" destination="Npv-lW-AWT" id="hdj-lY-kZi"/>
                         <outlet property="enjoymentPicker" destination="nDk-2c-GFw" id="HtA-AQ-DUU"/>
@@ -173,6 +174,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVq-5W-m5u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2611.594202898551" y="130.58035714285714"/>
+        </scene>
+        <!--Display Screen View Controller-->
+        <scene sceneID="Om7-bU-EgO">
+            <objects>
+                <viewController storyboardIdentifier="DisplayScreenViewController" id="BSl-we-d9a" customClass="DisplayScreenViewController" customModule="CommentCardWriter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qq3-hT-85I">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KsM-UL-Lvd">
+                                <rect key="frame" x="187.5" y="437.5" width="39" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KsM-UL-Lvd" firstAttribute="centerY" secondItem="Qq3-hT-85I" secondAttribute="centerY" id="fNb-p8-q6c"/>
+                            <constraint firstItem="KsM-UL-Lvd" firstAttribute="centerX" secondItem="Qq3-hT-85I" secondAttribute="centerX" id="wX4-9G-0Yl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vw4-iz-rY4"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentDisplayLabel" destination="KsM-UL-Lvd" id="0VY-BT-xJV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6P8-X2-Ehf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3428" y="131"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mrZ-s2-ftx">

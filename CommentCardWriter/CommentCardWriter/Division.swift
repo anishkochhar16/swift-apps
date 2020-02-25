@@ -11,7 +11,7 @@ import Foundation
 class Division {
     var code: String
     var teacher: String
-    var comment: CommentCard?
+    var opinion: Opinion?
     
     init(code: String, teacher: String) {
         self.code = code

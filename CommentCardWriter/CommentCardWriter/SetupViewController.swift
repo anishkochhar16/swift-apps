@@ -20,6 +20,7 @@ class SetupViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var ewWeaknessSwitch: UISwitch!
     @IBOutlet weak var involvedMoreSwitch: UISwitch!
     @IBOutlet weak var disorganisedSwitch: UISwitch!
+    @IBOutlet weak var confirmButton: UIButton!
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -41,9 +42,7 @@ class SetupViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    @IBAction func confirmButton(_ sender: Any) {
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Setup: \(division.code)"
@@ -51,6 +50,47 @@ class SetupViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         enjoymentPicker.delegate = self
         effortPicker.delegate = self
         effortPicker.dataSource = self
+    }
+
+    func initializeOpinion () {
+        var opinion = Opinion(strengths: [], weaknesses: [], effort: 0, enjoyment: 0, division: self.division)
+        if self.attitudeSwitch.isOn {
+            opinion.strengths.append("attitude")
+        }
+        if self.ewStrengthSwitch.isOn {
+            opinion.strengths.append("EW")
+        }
+        if self.goodSwitch.isOn {
+            opinion.strengths.append("good")
+        }
+        if self.disorganisedSwitch.isOn {
+            opinion.weaknesses.append("disorganised")
+        }
+        if self.ewWeaknessSwitch.isOn {
+            opinion.weaknesses.append("EW")
+        }
+        if self.involvedMoreSwitch.isOn {
+            opinion.weaknesses.append("involved")
+        }
+        self.division.opinion = opinion
+    }
+    
+    @IBAction func confirmChoices(_ sender: Any) {
+        let alert = UIAlertController(title: "confirm", message: "Are you sure", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel))
+        alert.addAction(UIAlertAction(title: "yes im sure", style: .default, handler: { action in
+            // Create New Opinion
+            self.initializeOpinion()
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "DisplayScreenViewController", creator: { coder in
+                return DisplayScreenViewController(coder: coder, division: self.division)
+            }) else {
+                fatalError("Failed in load Setup View Controller from storyboard")
+            }
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

@@ -22,4 +22,16 @@ class Opinion {
         self.enjoyment = enjoyment
         self.division = division
     }
+    
+    func displayStats() -> String {
+        var returnString = ""
+        for strength in strengths {
+            returnString += strength + "\n"
+        }
+        for weakness in weaknesses {
+            print("Weakness: \(weakness)")
+        }
+        return
+        
+    }
 }

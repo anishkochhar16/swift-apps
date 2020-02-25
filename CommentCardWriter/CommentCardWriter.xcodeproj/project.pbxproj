@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C9B197124052D8C00D1B294 /* CommentCardGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B197024052D8C00D1B294 /* CommentCardGenerator.swift */; };
+		8C9B19732405340C00D1B294 /* DisplayScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B19722405340C00D1B294 /* DisplayScreenViewController.swift */; };
 		8CC0168523F2B381001503AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC0168423F2B381001503AA /* AppDelegate.swift */; };
 		8CC0168723F2B381001503AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC0168623F2B381001503AA /* SceneDelegate.swift */; };
 		8CC0168923F2B381001503AA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC0168823F2B381001503AA /* HomeViewController.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C9B197024052D8C00D1B294 /* CommentCardGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCardGenerator.swift; sourceTree = "<group>"; };
+		8C9B19722405340C00D1B294 /* DisplayScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayScreenViewController.swift; sourceTree = "<group>"; };
 		8CC0168123F2B381001503AA /* CommentCardWriter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommentCardWriter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC0168423F2B381001503AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CC0168623F2B381001503AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 				8CC0168423F2B381001503AA /* AppDelegate.swift */,
 				8CC0168623F2B381001503AA /* SceneDelegate.swift */,
 				8CC0168823F2B381001503AA /* HomeViewController.swift */,
+				8CC016BA23F2BA18001503AA /* SetupViewController.swift */,
+				8C9B19722405340C00D1B294 /* DisplayScreenViewController.swift */,
 				8CC0168A23F2B381001503AA /* Main.storyboard */,
 				8CC0168D23F2B382001503AA /* Assets.xcassets */,
 				8CC0168F23F2B382001503AA /* LaunchScreen.storyboard */,
@@ -117,7 +123,7 @@
 				8CC016B423F2B404001503AA /* Division.swift */,
 				8CC016B623F2B42C001503AA /* CommentCard.swift */,
 				8CC016B823F2B502001503AA /* Opinion.swift */,
-				8CC016BA23F2BA18001503AA /* SetupViewController.swift */,
+				8C9B197024052D8C00D1B294 /* CommentCardGenerator.swift */,
 			);
 			path = CommentCardWriter;
 			sourceTree = "<group>";
@@ -271,7 +277,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9B19732405340C00D1B294 /* DisplayScreenViewController.swift in Sources */,
 				8CC0168923F2B381001503AA /* HomeViewController.swift in Sources */,
+				8C9B197124052D8C00D1B294 /* CommentCardGenerator.swift in Sources */,
 				8CC016B723F2B42C001503AA /* CommentCard.swift in Sources */,
 				8CC016B923F2B502001503AA /* Opinion.swift in Sources */,
 				8CC0168523F2B381001503AA /* AppDelegate.swift in Sources */,
