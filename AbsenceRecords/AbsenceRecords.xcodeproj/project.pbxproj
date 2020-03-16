@@ -9,10 +9,15 @@
 /* Begin PBXBuildFile section */
 		1026CC5523EC8641006A90B7 /* StudentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1026CC5423EC8641006A90B7 /* StudentCell.swift */; };
 		1026CC5723EC88D0006A90B7 /* Absence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1026CC5623EC88D0006A90B7 /* Absence.swift */; };
+		102A6E1A2416F6500019743B /* DivisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102A6E192416F64F0019743B /* DivisionTests.swift */; };
+		102A6E1B2416F6D60019743B /* Absence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1026CC5623EC88D0006A90B7 /* Absence.swift */; };
+		102A6E1C2416F6DA0019743B /* Division.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109FB22123E20E8C00E2A06C /* Division.swift */; };
+		102A6E1D2416F6DD0019743B /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109FB21F23E20E1200E2A06C /* Student.swift */; };
+		102A6E1F241775530019743B /* UserDocumentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102A6E1E241775530019743B /* UserDocumentsManager.swift */; };
 		1036329623E8AFC1001D9DA8 /* DivisionAbsenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1036329523E8AFC1001D9DA8 /* DivisionAbsenceViewController.swift */; };
 		109FB1F023E20A4700E2A06C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109FB1EF23E20A4700E2A06C /* AppDelegate.swift */; };
 		109FB1F223E20A4700E2A06C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109FB1F123E20A4700E2A06C /* SceneDelegate.swift */; };
-		109FB1F423E20A4700E2A06C /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109FB1F323E20A4700E2A06C /* homeViewController.swift */; };
+		109FB1F423E20A4700E2A06C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109FB1F323E20A4700E2A06C /* HomeViewController.swift */; };
 		109FB1F723E20A4700E2A06C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109FB1F523E20A4700E2A06C /* Main.storyboard */; };
 		109FB1F923E20A4D00E2A06C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 109FB1F823E20A4D00E2A06C /* Assets.xcassets */; };
 		109FB1FC23E20A4D00E2A06C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109FB1FA23E20A4D00E2A06C /* LaunchScreen.storyboard */; };
@@ -43,11 +48,13 @@
 /* Begin PBXFileReference section */
 		1026CC5423EC8641006A90B7 /* StudentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCell.swift; sourceTree = "<group>"; };
 		1026CC5623EC88D0006A90B7 /* Absence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Absence.swift; sourceTree = "<group>"; };
+		102A6E192416F64F0019743B /* DivisionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionTests.swift; sourceTree = "<group>"; };
+		102A6E1E241775530019743B /* UserDocumentsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDocumentsManager.swift; sourceTree = "<group>"; };
 		1036329523E8AFC1001D9DA8 /* DivisionAbsenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionAbsenceViewController.swift; sourceTree = "<group>"; };
 		109FB1EC23E20A4700E2A06C /* AbsenceRecords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AbsenceRecords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		109FB1EF23E20A4700E2A06C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		109FB1F123E20A4700E2A06C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		109FB1F323E20A4700E2A06C /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
+		109FB1F323E20A4700E2A06C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		109FB1F623E20A4700E2A06C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		109FB1F823E20A4D00E2A06C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		109FB1FB23E20A4D00E2A06C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -113,7 +120,8 @@
 			children = (
 				109FB1EF23E20A4700E2A06C /* AppDelegate.swift */,
 				109FB1F123E20A4700E2A06C /* SceneDelegate.swift */,
-				109FB1F323E20A4700E2A06C /* homeViewController.swift */,
+				109FB1F323E20A4700E2A06C /* HomeViewController.swift */,
+				1036329523E8AFC1001D9DA8 /* DivisionAbsenceViewController.swift */,
 				109FB1F523E20A4700E2A06C /* Main.storyboard */,
 				109FB1F823E20A4D00E2A06C /* Assets.xcassets */,
 				109FB1FA23E20A4D00E2A06C /* LaunchScreen.storyboard */,
@@ -121,9 +129,9 @@
 				109FB21F23E20E1200E2A06C /* Student.swift */,
 				109FB22123E20E8C00E2A06C /* Division.swift */,
 				109FB22323E20FCB00E2A06C /* DivisionFactory.swift */,
-				1036329523E8AFC1001D9DA8 /* DivisionAbsenceViewController.swift */,
 				1026CC5423EC8641006A90B7 /* StudentCell.swift */,
 				1026CC5623EC88D0006A90B7 /* Absence.swift */,
+				102A6E1E241775530019743B /* UserDocumentsManager.swift */,
 			);
 			path = AbsenceRecords;
 			sourceTree = "<group>";
@@ -133,6 +141,7 @@
 			children = (
 				109FB20623E20A4E00E2A06C /* AbsenceRecordsTests.swift */,
 				109FB20823E20A4E00E2A06C /* Info.plist */,
+				102A6E192416F64F0019743B /* DivisionTests.swift */,
 			);
 			path = AbsenceRecordsTests;
 			sourceTree = "<group>";
@@ -278,8 +287,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1026CC5723EC88D0006A90B7 /* Absence.swift in Sources */,
-				109FB1F423E20A4700E2A06C /* homeViewController.swift in Sources */,
+				109FB1F423E20A4700E2A06C /* HomeViewController.swift in Sources */,
 				109FB1F023E20A4700E2A06C /* AppDelegate.swift in Sources */,
+				102A6E1F241775530019743B /* UserDocumentsManager.swift in Sources */,
 				109FB22223E20E8C00E2A06C /* Division.swift in Sources */,
 				1026CC5523EC8641006A90B7 /* StudentCell.swift in Sources */,
 				109FB1F223E20A4700E2A06C /* SceneDelegate.swift in Sources */,
@@ -293,6 +303,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				102A6E1B2416F6D60019743B /* Absence.swift in Sources */,
+				102A6E1A2416F6500019743B /* DivisionTests.swift in Sources */,
+				102A6E1C2416F6DA0019743B /* Division.swift in Sources */,
+				102A6E1D2416F6DD0019743B /* Student.swift in Sources */,
 				109FB20723E20A4E00E2A06C /* AbsenceRecordsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

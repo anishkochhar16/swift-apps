@@ -16,8 +16,8 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadDummyData()
         updateDateDisplay()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,7 +46,6 @@ class HomeViewController: UITableViewController {
         var absence = Absence(date: currentDate, present: selectedDivision.students)
         
         if let reusedAbsence = selectedDivision.getAbsence(for: currentDate) {
-            print("existing absence")
             absence = reusedAbsence
         } else {
             selectedDivision.absences.append(absence)
@@ -103,6 +102,58 @@ class HomeViewController: UITableViewController {
         currentDate = Calendar.current.date(byAdding: .day, value: -1, to:  currentDate) ?? Date()
         updateDateDisplay()
         tableView.reloadData()
+    }
+    
+    func convertDivisionsToJson() -> String? {
+        let encoder = JSONEncoder()
+        
+        guard let encoded = try? encoder.encode(divisions) else {
+            print("couldnt encode division")
+            return nil
+        }
+        
+        guard let json =  String(data: encoded, encoding: .utf8) else {
+            print("Unable to turn encoded division into a string")
+            return nil
+        }
+        
+        return json
+    }
+    
+    func decodeJsonToDivisions(json: Data) -> [Division]? {
+        let decoder = JSONDecoder()
+        
+        guard let decoded = try? decoder.decode([Division].self, from: json) else {
+            print("couldnt decode")
+            return nil
+        }
+        return decoded
+    }
+    
+    func saveDataToFile() {
+        guard let divisionJson = convertDivisionsToJson() else {
+            return
+        }
+        
+        let filePath = UserDocumentManager.getDocumentsDirectory().appendingPathComponent("divisions.txt")
+        
+        do {
+            try divisionJson.write(to: filePath, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            print("Unable to save by writing to file")
+        }
+    }
+    
+    func loadDataFromFile() {
+        let filePath = UserDocumentManager.getDocumentsDirectory().appendingPathComponent("divisions.txt")
+        
+        do {
+            let json = try Data(contentsOf: filePath)
+            divisions = decodeJsonToDivisions(json: json) ?? []
+        } catch {
+            print("Failed to read from file")
+            loadDummyData()
+        }
     }
     
     func loadDummyData() {
