@@ -16,21 +16,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcf-1d-0jp">
-                                <rect key="frame" x="107" y="100" width="200" height="100"/>
+                                <rect key="frame" x="107" y="295" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Pcf-1d-0jp" secondAttribute="height" multiplier="2:1" id="5xp-aY-lZV"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Szk-Fk-hnG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxW-FU-QIW">
-                                <rect key="frame" x="107" y="230" width="200" height="100"/>
+                                <rect key="frame" x="107" y="425" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kxW-FU-QIW" secondAttribute="height" multiplier="2:1" id="nDu-2a-llX"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SWQ-2W-G1K"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RlZ-xf-EA0">
-                                <rect key="frame" x="107" y="360" width="200" height="100"/>
+                                <rect key="frame" x="107" y="555" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RlZ-xf-EA0" secondAttribute="height" multiplier="2:1" id="8cu-zt-xth"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k22-WQ-wGX"/>
@@ -39,9 +48,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="RlZ-xf-EA0" secondAttribute="bottom" constant="20" id="DoL-3L-Vff"/>
                             <constraint firstItem="RlZ-xf-EA0" firstAttribute="centerX" secondItem="kxW-FU-QIW" secondAttribute="centerX" id="IRm-Q2-JLC"/>
-                            <constraint firstItem="Pcf-1d-0jp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="Scg-wu-fx8"/>
+                            <constraint firstItem="kxW-FU-QIW" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="KGq-Ml-dvT"/>
+                            <constraint firstItem="RlZ-xf-EA0" firstAttribute="height" secondItem="kxW-FU-QIW" secondAttribute="height" id="Q5I-VH-1pR"/>
                             <constraint firstItem="kxW-FU-QIW" firstAttribute="centerX" secondItem="Pcf-1d-0jp" secondAttribute="centerX" id="UxF-lm-onX"/>
+                            <constraint firstItem="kxW-FU-QIW" firstAttribute="height" secondItem="Pcf-1d-0jp" secondAttribute="height" id="WQy-he-4hS"/>
                             <constraint firstItem="kxW-FU-QIW" firstAttribute="top" secondItem="Pcf-1d-0jp" secondAttribute="bottom" constant="30" id="Ynv-FH-uHa"/>
                             <constraint firstItem="RlZ-xf-EA0" firstAttribute="top" secondItem="kxW-FU-QIW" secondAttribute="bottom" constant="30" id="fYA-gh-stT"/>
                             <constraint firstItem="Pcf-1d-0jp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="kGA-1C-bag"/>

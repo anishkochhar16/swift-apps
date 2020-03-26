@@ -54,13 +54,17 @@ class ViewController: UIViewController {
         buttonTwo.setImage(UIImage(named: countries[1]), for: .normal)
         buttonThree.setImage(UIImage(named: countries[2]), for: .normal)
         
-//        title = countries[correctAnswer].uppercased() + "               Score: \(score)"
         updateScore(correct: countries[correctAnswer].uppercased())
     }
 
     @IBAction func buttonTapped(_ sender: UIButton) {
         var title: String
         questionsAsked += 1
+        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: [], animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        }) { (finished) in
+            sender.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
         
         if sender.tag == correctAnswer {
             title = "Correct"
